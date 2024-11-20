@@ -50,12 +50,23 @@ groundSurface = pygame.image.load('ground.png').convert_alpha()
 ground = groundSurface.get_rect(midbottom = (SCREEN_WIDTH / 2, SCREEN_HEIGHT))
 groundY = 440
 
+sownd = pygame.mixer.Sound("cat.mp3")
+s = pygame.mixer.Sound("rm5m.mp3")
+pygame.mixer.music.load("rm5m.mp3")
+pygame.mixer.music.play(-1,0)
+pygame.mixer.music.set_volume(0.6)
+pygame.mixer.Channel(1).set_volume(1)
 # Create the game loop
 run = True
 while run:
+  key = pygame.key.get_pressed()
+  if key[pygame.K_SPACE] == True:
+    pygame.mixer.Channel(1).play(sownd)
+
+  
   # Player Jump and Gravity
   # Player controls
-  
+
   # Player animation
   # TODO 4.1: call the playerAnimation function
   playerAnimation()
